@@ -3,15 +3,28 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+#trigger:
+#- master
+
+#pool:
+#  vmImage: ubuntu-latest
+
+#steps:
+#- task: SynopsysPolaris@1
+#  displayName: 'Synopsys Polaris'
+#  inputs:
+#    polarisService: 'SIPSE_POLARIS'
+#    polarisCommand: 'analyze -w'
 
 pool:
   vmImage: ubuntu-latest
 
+workspace:
+  clean: all
+
 steps:
 - task: SynopsysPolaris@1
-  displayName: 'Synopsys Polaris'
   inputs:
     polarisService: 'SIPSE_POLARIS'
-    polarisCommand: 'analyze -w'
+    polarisCommand: 'analyze -w -- mvn -B compile -DskipTests'
+  displayName: 'Polaris Scan'
