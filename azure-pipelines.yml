@@ -24,7 +24,7 @@ workspace:
 
 steps:
 - task: SynopsysPolaris@1
+  displayName: 'Synopsys Polaris Scan'
   inputs:
     polarisService: 'SIPSE_POLARIS'
     polarisCommand: 'analyze -w -- mvn -B compile -DskipTests'
-  displayName: 'Polaris Scan'
