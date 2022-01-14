@@ -14,7 +14,7 @@ capture:
 analyze:
   mode: central
   coverity:
-    cov-analyze: ["--all", "--webapp-security", "--disable-fb"]
+    cov-analyze: ["--all", "--webapp-security", "--enable-audit-mode"]
 install:
   coverity:
     version: default
