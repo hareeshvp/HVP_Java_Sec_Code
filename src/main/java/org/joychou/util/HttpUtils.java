@@ -5,7 +5,6 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -21,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import javax.imageio.ImageIO;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -33,7 +33,7 @@ import java.util.concurrent.*;
  */
 public class HttpUtils {
 
-    private static Logger logger = LoggerFactory.getLogger(HttpUtils.class);
+    private final static Logger logger = LoggerFactory.getLogger(HttpUtils.class);
 
     public static String commonHttpClient(String url) {
 
@@ -94,7 +94,6 @@ public class HttpUtils {
             URL u = new URL(url);
             URLConnection urlConnection = u.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream())); //send request
-            // BufferedReader in = new BufferedReader(new InputStreamReader(u.openConnection().getInputStream()));
             String inputLine;
             StringBuilder html = new StringBuilder();
 
@@ -110,12 +109,19 @@ public class HttpUtils {
     }
 
 
-    public static String HTTPURLConnection(String url) {
+    /**
+     * The default setting of followRedirects is true.
+     * UserAgent is Java/1.8.0_102.
+     */
+    public static String HttpURLConnection(String url) {
         try {
             URL u = new URL(url);
             URLConnection urlConnection = u.openConnection();
-            HttpURLConnection httpUrl = (HttpURLConnection) urlConnection;
-            BufferedReader in = new BufferedReader(new InputStreamReader(httpUrl.getInputStream())); //send request
+            HttpURLConnection conn = (HttpURLConnection) urlConnection;
+//             conn.setInstanceFollowRedirects(false);
+//             Many HttpURLConnection methods can send http request, such as getResponseCode, getHeaderField
+            InputStream is = conn.getInputStream();  // send request
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));
             String inputLine;
             StringBuilder html = new StringBuilder();
 
@@ -139,7 +145,7 @@ public class HttpUtils {
     public static String Jsoup(String url) {
         try {
             Document doc = Jsoup.connect(url)
-                    //.followRedirects(false)
+//                    .followRedirects(false)
                     .timeout(3000)
                     .cookie("name", "joychou") // request cookies
                     .execute().parse();
@@ -157,12 +163,19 @@ public class HttpUtils {
      */
     public static String okhttp(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
-        // client.setFollowRedirects(false);
+//         client.setFollowRedirects(false);
         com.squareup.okhttp.Request ok_http = new com.squareup.okhttp.Request.Builder().url(url).build();
         return client.newCall(ok_http).execute().body().string();
     }
 
 
+    /**
+     * The default setting of followRedirects is true.
+     *
+     * UserAgent is Java/1.8.0_102.
+     *
+     * @param url http request url
+     */
     public static void imageIO(String url) {
         try {
             URL u = new URL(url);
@@ -206,7 +219,5 @@ public class HttpUtils {
                 logger.error(e.getMessage());
             }
         }
-
     }
-
 }

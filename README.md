@@ -3,7 +3,12 @@
 
 Java sec code is a very powerful and friendly project for learning Java vulnerability code.
 
-[中文文档](https://github.com/JoyChou93/java-sec-code/blob/master/README_zh.md)
+[中文文档](https://github.com/JoyChou93/java-sec-code/blob/master/README_zh.md) 😋
+
+## Recruitment
+
+[Alibaba-Security attack and defense/research（P5-P7）](https://github.com/JoyChou93/java-sec-code/wiki/Alibaba-Purple-Team-Job-Description)
+
 
 ## Introduce
 
@@ -30,6 +35,7 @@ Sort by letter.
 - [CORS](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/CORS.java)
 - [CRLF Injection](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/CRLFInjection.java)
 - [CSRF](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/security/WebSecurityConfig.java)
+- [CVE-2022-22978](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/security/WebSecurityConfig.java)
 - [Deserialize](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Deserialize.java)
 - [Fastjson](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Fastjson.java)
 - [File Upload](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/FileUpload.java)
@@ -37,14 +43,17 @@ Sort by letter.
 - [IP Forge](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/IPForge.java)
 - [Java RMI](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/RMI/Server.java)
 - [JSONP](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Jsonp.java)
+- [Log4j](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Log4j.java)
 - [ooxmlXXE](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/othervulns/ooxmlXXE.java)
 - [PathTraversal](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/PathTraversal.java)
+- [QLExpress](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/QLExpress.java)
 - [RCE](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Rce.java)
   - Runtime
   - ProcessBuilder
   - ScriptEngine
   - Yaml Deserialize  
   - Groovy
+- [Shiro](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Shiro.java)
 - [Swagger](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/config/SwaggerConfig.java)
 - [SpEL](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/SpEL.java)
 - [SQL Injection](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/SQLI.java)
@@ -56,7 +65,7 @@ Sort by letter.
 - [XSS](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/XSS.java)
 - [XStream](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/XStreamRce.java)
 - [XXE](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/XXE.java)
-
+- [JWT](https://github.com/JoyChou93/java-sec-code/blob/master/src/main/java/org/joychou/controller/Jwt.java)
 
 
 ## Vulnerability Description
@@ -74,6 +83,7 @@ Sort by letter.
 - [SSTI](https://github.com/JoyChou93/java-sec-code/wiki/SSTI)
 - [URL whitelist Bypass](https://github.com/JoyChou93/java-sec-code/wiki/URL-whtielist-Bypass)
 - [XXE](https://github.com/JoyChou93/java-sec-code/wiki/XXE)
+- [JWT](https://github.com/JoyChou93/java-sec-code/wiki/JWT)
 - [Others](https://github.com/JoyChou93/java-sec-code/wiki/others)
 
 ## How to run
@@ -142,7 +152,7 @@ Viarus
 Example:
 
 ```
-http://localhost:8080/java-sec-code-1.0.0/rce/exec?cmd=whoami
+http://localhost:8080/java-sec-code-1.0.0/rce/runtime/exec?cmd=whoami
 ```
 
 return:
@@ -200,12 +210,6 @@ Core developers : [JoyChou](https://github.com/JoyChou93), [liergou9981](https:/
 Other developers: [lightless](https://github.com/lightless233),  [Anemone95](https://github.com/Anemone95), [waderwu](https://github.com/waderwu). 
 
 
-## Donate
+## Support
 
-If you like the poject, you can donate to support me. With your support, I will be able to make `Java sec code` better 😎.
-
-### Alipay
-
-Scan the QRcode to support `Java sec code`.
-
-<img title="Alipay QRcode" src="https://aliyun-testaaa.oss-cn-shanghai.aliyuncs.com/alipay_qr.png" width="200">
+If you like the poject, you can star java-sec-code project to support me. With your support, I will be able to make `Java sec code` better 😎.
